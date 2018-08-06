@@ -19,6 +19,8 @@
 
 // ============= MAIN PROCESSES =============
 
+	require("./routes/routing.js")(app);
+
 	// If a database connection error occurs...
 	db.on("error", (err) => {
 		console.log("database error:", err);
