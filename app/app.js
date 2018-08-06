@@ -2,5 +2,7 @@
 	import React from "react";
 	import ReactDOM from "react-dom";
 
+	import Main from "./components/Main.js";
+
 // ============= MAIN PROCESSES =============
-	ReactDOM.render(<h1>IT WORKED!!!!</h1>, document.getElementById("app"));
+	ReactDOM.render(<Main />, document.getElementById("app"));
