@@ -78,7 +78,7 @@
 					<div>
 						<Query setQuery={this.setQuery}/>
 						<br />
-						<Results />
+						<Results results={this.state.results}/>
 					</div>
 				);
 			}
