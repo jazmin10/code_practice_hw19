@@ -31,11 +31,22 @@
 			});
 		},
 
+		// Saves an article to the db
 		save: (article) => {
 			return axios({
 				url: "/api/saved",
 				method: "POST",
 				data: article
+			});
+		},
+
+		// Returns articles saved in the db
+		savedArticles: () => {
+			return axios({
+				url: "/api/saved",
+				method: "GET"
+			}).then(function(response) {
+				return response.data
 			});
 		}
 	}
