@@ -2,7 +2,7 @@
 	import React from "react";
 	import ReactDOM from "react-dom";
 
-	import Main from "./components/Main.js";
+	import routes from "./config/routes.js";
 
 // ============= MAIN PROCESSES =============
-	ReactDOM.render(<Main />, document.getElementById("app"));
+	ReactDOM.render(routes, document.getElementById("app"));
