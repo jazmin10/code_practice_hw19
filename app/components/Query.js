@@ -27,6 +27,12 @@
 
 		// Handles form submission: sends input to Search component
 		handleSubmit() {
+			this.setState({
+				topic: "", 
+				startYear: "",
+				endYear: ""
+			});
+			
 			this.props.setQuery(this.state.topic, this.state.startYear, this.state.endYear);
 		}
 
