@@ -4,6 +4,7 @@
 
 // ============= MAIN PROCESSES =============
 	let helpers = {
+
 		// Makes NYT API request
 		search: (topic, startYear, endYear) => {
 			let key = "c72d1829061a47beb992c7a4b26251b8";
@@ -27,6 +28,14 @@
 				method: "GET"
 			}).then(function(results) {
 				return results.data.response.docs;
+			});
+		},
+
+		save: (article) => {
+			return axios({
+				url: "/api/saved",
+				method: "POST",
+				data: article
 			});
 		}
 	}

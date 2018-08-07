@@ -7,6 +7,12 @@
 	export default class Results extends React.Component {
 		constructor(props) {
 			super(props);
+
+			this.handleClick = this.handleClick.bind(this);
+		}
+
+		handleClick(event) {
+			this.props.saveArticle(event.target.value);
 		}
 
 		render() {
@@ -22,7 +28,11 @@
 				    			<div className="card" key={i}>
 									  <div className="card-body">
 									    <h5>{currArticle.headline.main}</h5>
-									    <button className="btn btn-primary">Save</button>
+									    <button
+									    	value={i} 
+									    	className="btn btn-primary"
+									    	onClick={this.handleClick}
+									    >Save</button>
 									  </div>
 									</div>
 				    		);

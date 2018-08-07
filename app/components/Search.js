@@ -22,6 +22,7 @@
 
 			this.setQuery = this.setQuery.bind(this);
 			this.runQuery = this.runQuery.bind(this);
+			this.saveArticle = this.saveArticle.bind(this);
 		}
 
 		// When new search parameters are submitted, search for articles
@@ -66,6 +67,22 @@
 			});
 		}
 
+		// Saves an article to the db
+		saveArticle(index) {
+			let article = this.state.results[index];
+
+			let articleInfo = {
+				title: article.headline.main,
+				url: article.web_url,
+				date: article.pub_date
+			};
+
+			helpers.save(articleInfo).then(() => {
+				this.state.results.splice(index, 1);
+				this.setState({ results: this.state.results });
+			});
+		}
+
 		render() {
 			{
 				if (this.state.results.length === 0) {
@@ -78,7 +95,7 @@
 					<div>
 						<Query setQuery={this.setQuery}/>
 						<br />
-						<Results results={this.state.results}/>
+						<Results results={this.state.results} saveArticle={this.saveArticle} />
 					</div>
 				);
 			}
