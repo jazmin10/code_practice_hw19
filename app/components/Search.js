@@ -5,13 +5,34 @@
 
 // ============= MAIN PROCESSES =============
 	export default class Search extends React.Component {
+
+		constructor(props) {
+			super(props);
+
+			this.state = {
+				topic: "",
+				startYear: "",
+				endYear: "",
+				results: []
+			};
+		}
+
 		render() {
-			return (
-				<div>
-					<Query />
-					<br />
-					<Results />
-				</div>
-			);
+			{
+				if (this.state.results.length === 0) {
+					return (
+						<Query />
+					);
+				}
+
+				return (
+					<div>
+						<Query />
+						<br />
+						<Results />
+					</div>
+				);
+			}
+			
 		}
 	}
