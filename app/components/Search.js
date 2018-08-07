@@ -15,19 +15,30 @@
 				endYear: "",
 				results: []
 			};
+
+			this.setQuery = this.setQuery.bind(this);
+		}
+
+		setQuery(topic, startYear, endYear) {
+			
+			this.setState({
+				topic: topic,
+				startYear: startYear,
+				endYear: endYear
+			});
 		}
 
 		render() {
 			{
 				if (this.state.results.length === 0) {
 					return (
-						<Query />
+						<Query setQuery={this.setQuery}/>
 					);
 				}
 
 				return (
 					<div>
-						<Query />
+						<Query setQuery={this.setQuery}/>
 						<br />
 						<Results />
 					</div>
